@@ -30,3 +30,21 @@ node mainframe
 psql -f emptystack.sql
 --use this to connect to database.
 \c mainframe_override
+-- use this to find the right row. that row is from 'your-boss-99' id 'LidWj' subject 'Project TAXI'. project code is TAXI.
+SELECT * FROM emptystack_messages WHERE body ILIKE '%axi%';
+--find credentials of the username 'your-boss-99'
+SELECT * FROM emptystack_accounts WHERE username = 'your-boss-99';
+   username   |    password    | first_name | last_name 
+--------------+----------------+------------+-----------
+ your-boss-99 | notagaincarter | Skylar     | Singer
+--find project id where code is TAXI.
+SELECT * FROM emptystack_projects WHERE code='TAXI';
+    id    | code 
+----------+------
+ DczE0v2b | TAXI
+
+ node mainframe_override -stop 
+ username: your-boss-99
+ password: notagaincarter
+ Project ID: DczE0v2b
+ PROJECT SHUTDOWN COMPLETE.
